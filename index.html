@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Exercícios — JavaScript Number API</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    header {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 34px 20px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 2rem; }
+    header p { margin: 0; color: #d1d5db; }
+    main { width: min(1000px, 92%); margin: 32px auto; }
+    .questao {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      border-left: 5px solid #2563eb;
+    }
+    .questao h2 { margin-top: 0; color: #1d4ed8; font-size: 1.3rem; }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code { font-family: Consolas, Monaco, monospace; }
+    .conceitos {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    .desafio {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,.06);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    th { background: #2563eb; color: white; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #6b7280;
+      font-size: .9rem;
+    }
+    .teste {
+      background: #f9fafb;
+      border: 1px dashed #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    .teste input {
+      display: block;
+      padding: 4px;
+      border: 1px solid #333;
+      width: 300px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .teste button { padding: 6px 12px; cursor: pointer; }
+    .resultado { white-space: pre-line; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lista de Exercícios — JavaScript Number API</h1>
+  <p>10 exercícios práticos com dificuldade progressiva</p>
+</header>
+
+<main>
+
+<section class="questao">
+  <h2>1. Arredondamento de um número</h2>
+  <p>Considere:</p>
+  <pre><code>const valor = 17.684;</code></pre>
+  <p>Crie um programa que exiba:</p>
+  <ol>
+    <li>O número arredondado para o inteiro mais próximo.</li>
+    <li>O número arredondado para baixo.</li>
+    <li>O número arredondado para cima.</li>
+  </ol>
+  <p><strong>Resultado esperado:</strong></p>
+  <pre><code>18
+17
+18</code></pre>
+  <div class="conceitos"><strong>Conceitos:</strong> <code>Math.round()</code>, <code>Math.floor()</code>, <code>Math.ceil()</code>.</div>
+  <div class="teste">
+    <input type="text" id="input1" value="17.684" placeholder="Digite um número">
+    <button id="btn1">Executar</button>
+    <p id="resultado1" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>2. Formatação de casas decimais</h2>
+  <pre><code>const preco = 149.98765;</code></pre>
+  <p>Exiba o preço com exatamente duas casas decimais.</p>
+  <p><strong>Resultado esperado:</strong></p>
+  <pre><code>149.99</code></pre>
+  <div class="conceitos"><strong>Conceito principal:</strong> <code>toFixed()</code>.</div>
+  <div class="desafio"><strong>Desafio:</strong> transforme o resultado em um número novamente, em vez de deixá-lo como string.</div>
+  <div class="teste">
+    <input type="text" id="input2" value="149.98765" placeholder="Digite um preço">
+    <button id="btn2">Executar</button>
+    <p id="resultado2" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>3. Conversão de string para número</h2>
+  <pre><code>const valor1 = "25";
+const valor2 = "17.5";</code></pre>
+  <p>Converta os dois valores para números e calcule:</p>
+  <ol>
+    <li>A soma.</li>
+    <li>A diferença.</li>
+    <li>O produto.</li>
+    <li>O quociente.</li>
+  </ol>
+  <p><strong>Resultado esperado:</strong></p>
+  <pre><code>Soma: 42.5
+Diferença: 7.5
+Produto: 437.5
+Quociente: 1.428571...</code></pre>
+  <div class="conceitos"><strong>Conceitos:</strong> <code>Number()</code>, operações aritméticas.</div>
+  <div class="teste">
+    <input type="text" id="input3a" value="25" placeholder="Primeiro valor">
+    <input type="text" id="input3b" value="17.5" placeholder="Segundo valor">
+    <button id="btn3">Executar</button>
+    <p id="resultado3" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>4. Verificação de número válido</h2>
+  <p>Considere:</p>
+  <pre><code>const valor = "123.45";</code></pre>
+  <p>Crie um programa que verifique se o conteúdo pode ser convertido para um número válido.</p>
+  <p>O programa deverá informar:</p>
+  <pre><code>Valor numérico válido</code></pre>
+  <p>ou:</p>
+  <pre><code>Valor inválido</code></pre>
+  <div class="conceitos"><strong>Conceitos:</strong> <code>Number()</code>, <code>Number.isNaN()</code>.</div>
+  <div class="teste">
+    <input type="text" id="input4" value="123.45" placeholder="Digite um valor">
+    <button id="btn4">Executar</button>
+    <p id="resultado4" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>5. Verificação de inteiro</h2>
+  <pre><code>const numero = 42.0;</code></pre>
+  <p>Verifique se o valor armazenado na variável é um número inteiro.</p>
+  <p>O programa deverá exibir:</p>
+  <pre><code>O número é inteiro.</code></pre>
+  <p>ou:</p>
+  <pre><code>O número não é inteiro.</code></pre>
+  <div class="conceitos"><strong>Conceito principal:</strong> <code>Number.isInteger()</code>.</div>
+  <div class="desafio"><strong>Desafio:</strong> teste também os valores <code>42.5</code>, <code>"42"</code> e <code>NaN</code>.</div>
+  <div class="teste">
+    <button id="btn5">Testar 42.0, 42.5, "42" e NaN</button>
+    <p id="resultado5" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>6. Maior e menor número</h2>
+  <p>Considere o conjunto:</p>
+  <pre><code>const numeros = [17, 4, 89, 32, 12, 56];</code></pre>
+  <p>Crie um programa que encontre:</p>
+  <ol>
+    <li>O maior número.</li>
+    <li>O menor número.</li>
+  </ol>
+  <p><strong>Resultado esperado:</strong></p>
+  <pre><code>Maior: 89
+Menor: 4</code></pre>
+  <div class="conceitos"><strong>Conceito principal:</strong> <code>Math.max()</code> e <code>Math.min()</code>.</div>
+  <div class="desafio"><strong>Desafio:</strong> utilize o operador spread (<code>...</code>) para passar os elementos do array aos métodos.</div>
+  <div class="teste">
+    <input type="text" id="input6" value="17, 4, 89, 32, 12, 56" placeholder="Números separados por vírgula">
+    <button id="btn6">Executar</button>
+    <p id="resultado6" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>7. Geração de número aleatório</h2>
+  <p>Crie uma função chamada <code>gerarNumero()</code> que retorne um número inteiro aleatório entre 1 e 100, incluindo os dois extremos.</p>
+  <p>Exemplo de utilização:</p>
+  <pre><code>console.log(gerarNumero());</code></pre>
+  <p>O resultado deverá ser um inteiro entre <strong>1</strong> e <strong>100</strong>.</p>
+  <div class="conceitos"><strong>Conceitos:</strong> <code>Math.random()</code>, <code>Math.floor()</code>.</div>
+  <div class="teste">
+    <button id="btn7">Gerar número</button>
+    <p id="resultado7" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>8. Cálculo de média</h2>
+  <pre><code>const nota1 = 7.5;
+const nota2 = 8.25;
+const nota3 = 9.0;</code></pre>
+  <p>Calcule a média das três notas e exiba o resultado com duas casas decimais.</p>
+  <p><strong>Resultado esperado:</strong></p>
+  <pre><code>Média: 8.25</code></pre>
+  <div class="conceitos"><strong>Conceitos:</strong> operações com números, divisão e <code>toFixed()</code>.</div>
+  <div class="desafio"><strong>Desafio:</strong> crie uma função que receba qualquer quantidade de notas.</div>
+  <div class="teste">
+    <input type="text" id="input8" value="7.5, 8.25, 9.0" placeholder="Notas separadas por vírgula">
+    <button id="btn8">Executar</button>
+    <p id="resultado8" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>9. Limites numéricos</h2>
+  <p>Crie um programa que exiba:</p>
+  <ol>
+    <li>O maior número inteiro seguro que o JavaScript consegue representar com segurança.</li>
+    <li>O menor número inteiro seguro.</li>
+    <li>O maior valor numérico finito.</li>
+  </ol>
+  <p>Utilize propriedades da classe <code>Number</code>.</p>
+  <div class="conceitos"><strong>Conceitos:</strong> <code>Number.MAX_SAFE_INTEGER</code>, <code>Number.MIN_SAFE_INTEGER</code>, <code>Number.MAX_VALUE</code>.</div>
+  <div class="desafio"><strong>Desafio:</strong> explique a diferença entre <code>MAX_SAFE_INTEGER</code> e <code>MAX_VALUE</code>.</div>
+  <div class="teste">
+    <button id="btn9">Mostrar limites</button>
+    <p id="resultado9" class="resultado"></p>
+  </div>
+</section>
+
+<section class="questao">
+  <h2>10. Validação completa de valores numéricos</h2>
+  <p>Crie uma função chamada <code>analisarNumero()</code> que receba um valor e informe:</p>
+  <ul>
+    <li>Se o valor é realmente um número.</li>
+    <li>Se é um número inteiro.</li>
+    <li>Se é um número finito.</li>
+    <li>Se é um número seguro para operações inteiras.</li>
+  </ul>
+
+  <p>Teste a função com:</p>
+  <pre><code>analisarNumero(42);
+analisarNumero(42.5);
+analisarNumero("42");
+analisarNumero(Infinity);
+analisarNumero(NaN);</code></pre>
+
+  <div class="conceitos">
+    <strong>Conceitos:</strong>
+    <code>Number.isNaN()</code>,
+    <code>Number.isInteger()</code>,
+    <code>Number.isFinite()</code>,
+    <code>Number.isSafeInteger()</code>.
+  </div>
+
+  <div class="desafio"><strong>Desafio:</strong> faça a função retornar um objeto contendo todas as informações da análise.</div>
+  <div class="teste">
+    <button id="btn10">Testar 42, 42.5, "42", Infinity e NaN</button>
+    <p id="resultado10" class="resultado"></p>
+  </div>
+</section>
+
+<h2>Progressão de dificuldade</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercício</th>
+      <th>Tema principal</th>
+      <th>Nível</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Arredondamento</td><td>⭐</td></tr>
+    <tr><td>2</td><td>Casas decimais</td><td>⭐</td></tr>
+    <tr><td>3</td><td>Conversão de valores</td><td>⭐⭐</td></tr>
+    <tr><td>4</td><td>NaN e validação</td><td>⭐⭐</td></tr>
+    <tr><td>5</td><td>Verificação de inteiros</td><td>⭐⭐</td></tr>
+    <tr><td>6</td><td>Maior e menor valor</td><td>⭐⭐⭐</td></tr>
+    <tr><td>7</td><td>Números aleatórios</td><td>⭐⭐⭐</td></tr>
+    <tr><td>8</td><td>Média e formatação</td><td>⭐⭐⭐</td></tr>
+    <tr><td>9</td><td>Limites numéricos</td><td>⭐⭐⭐⭐</td></tr>
+    <tr><td>10</td><td>Validação completa</td><td>⭐⭐⭐⭐⭐</td></tr>
+  </tbody>
+</table>
+
+</main>
+
+<footer>
+  Lista de exercícios de JavaScript — API Number
+</footer>
+
+<script>
+
+
+  // 1. Arredondamento de um número
+  function arredondar(valor) {
+    return [Math.round(valor), Math.floor(valor), Math.ceil(valor)];
+  }
+
+  // 2. Formatação de casas decimais
+  function formatarPreco(preco) {
+    return preco.toFixed(2); // string
+  }
+  function formatarPrecoNumero(preco) {
+    return Number(preco.toFixed(2)); // número (desafio)
+  }
+
+  // 3. Conversão de string para número
+  function operacoes(valor1, valor2) {
+    const a = Number(valor1);
+    const b = Number(valor2);
+    return { soma: a + b, diferenca: a - b, produto: a * b, quociente: a / b };
+  }
+
+  // 4. Verificação de número válido
+  function verificarNumero(valor) {
+    // Number("") e Number("  ") dão 0, então texto vazio é tratado como inválido
+    const invalido = String(valor).trim() === "" || Number.isNaN(Number(valor));
+    return invalido ? "Valor inválido" : "Valor numérico válido";
+  }
+
+  // 5. Verificação de inteiro
+  function verificarInteiro(numero) {
+    return Number.isInteger(numero) ? "O número é inteiro." : "O número não é inteiro.";
+  }
+
+  // 6. Maior e menor número (com spread)
+  function maiorEMenor(numeros) {
+    return { maior: Math.max(...numeros), menor: Math.min(...numeros) };
+  }
+
+  // 7. Geração de número aleatório entre 1 e 100 (inclusive)
+  function gerarNumero() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+  // 8. Cálculo de média (qualquer quantidade de notas)
+  function calcularMedia(...notas) {
+    const soma = notas.reduce((acumulado, nota) => acumulado + nota, 0);
+    return (soma / notas.length).toFixed(2);
+  }
+
+  // 9. Limites numéricos
+  function limitesNumericos() {
+    return {
+      maxSeguro: Number.MAX_SAFE_INTEGER,
+      minSeguro: Number.MIN_SAFE_INTEGER,
+      maxValor: Number.MAX_VALUE
+    };
+  }
+
+  // 10. Validação completa de valores numéricos (retorna objeto)
+  function analisarNumero(valor) {
+    return {
+      ehNumero: typeof valor === "number" && !Number.isNaN(valor),
+      ehInteiro: Number.isInteger(valor),
+      ehFinito: Number.isFinite(valor),
+      ehSeguro: Number.isSafeInteger(valor)
+    };
+  }
+
+
+  const sim = b => (b ? "sim" : "não");
+  const descrever = v => (typeof v === "string" ? `"${v}"` : String(v)) + ` [${typeof v}]`;
+
+  function mostrar(n, texto) {
+    document.getElementById("resultado" + n).textContent = texto;
+  }
+  function ler(id) {
+    return document.getElementById(id).value;
+  }
+  function converter(texto) {
+    return texto.trim() === "" ? NaN : Number(texto);
+  }
+  function lerLista(id) {
+    const lista = ler(id).split(",").map(converter);
+    return lista.length === 0 || lista.some(Number.isNaN) ? null : lista;
+  }
+
+
+  document.getElementById("btn1").addEventListener("click", () => {
+    const n = converter(ler("input1"));
+    if (Number.isNaN(n)) return mostrar(1, "Digite um número válido.");
+    mostrar(1, arredondar(n).join("\n"));
+  });
+
+  document.getElementById("btn2").addEventListener("click", () => {
+    const n = converter(ler("input2"));
+    if (Number.isNaN(n)) return mostrar(2, "Digite um número válido.");
+    const texto = formatarPreco(n);
+    const numero = formatarPrecoNumero(n);
+    mostrar(2, `toFixed(2): ${texto} [${typeof texto}]\nDe volta a número: ${numero} [${typeof numero}]`);
+  });
+
+  document.getElementById("btn3").addEventListener("click", () => {
+    const a = ler("input3a");
+    const b = ler("input3b");
+    if (Number.isNaN(converter(a)) || Number.isNaN(converter(b))) {
+      return mostrar(3, "Digite dois números válidos.");
+    }
+    const r = operacoes(a, b);
+    mostrar(3, `Soma: ${r.soma}\nDiferença: ${r.diferenca}\nProduto: ${r.produto}\nQuociente: ${r.quociente}`);
+  });
+
+  document.getElementById("btn4").addEventListener("click", () => {
+    mostrar(4, verificarNumero(ler("input4")));
+  });
+
+  document.getElementById("btn5").addEventListener("click", () => {
+    const testes = [42.0, 42.5, "42", NaN];
+    mostrar(5, testes.map(v => `${descrever(v)} → ${verificarInteiro(v)}`).join("\n"));
+  });
+
+  document.getElementById("btn6").addEventListener("click", () => {
+    const numeros = lerLista("input6");
+    if (!numeros) return mostrar(6, "Digite números válidos separados por vírgula.");
+    const r = maiorEMenor(numeros);
+    mostrar(6, `Maior: ${r.maior}\nMenor: ${r.menor}`);
+  });
+
+  document.getElementById("btn7").addEventListener("click", () => {
+    mostrar(7, gerarNumero());
+  });
+
+  document.getElementById("btn8").addEventListener("click", () => {
+    const notas = lerLista("input8");
+    if (!notas) return mostrar(8, "Digite notas válidas separadas por vírgula.");
+    mostrar(8, `Média: ${calcularMedia(...notas)}`);
+  });
+
+  document.getElementById("btn9").addEventListener("click", () => {
+    const l = limitesNumericos();
+    mostrar(9,
+      `MAX_SAFE_INTEGER: ${l.maxSeguro}\n` +
+      `MIN_SAFE_INTEGER: ${l.minSeguro}\n` +
+      `MAX_VALUE: ${l.maxValor}\n\n` +
+      "Diferença: MAX_SAFE_INTEGER (2^53 - 1) é o maior inteiro até o qual todos os inteiros " +
+      "são representados com exatidão. MAX_VALUE é o maior número finito possível (~1,8 x 10^308), " +
+      "mas nessa grandeza os números representáveis ficam muito distantes entre si, " +
+      "então não há precisão para inteiros: ele é grande, mas não é seguro."
+    );
+  });
+
+  document.getElementById("btn10").addEventListener("click", () => {
+    const testes = [42, 42.5, "42", Infinity, NaN];
+    mostrar(10, testes.map(v => {
+      const r = analisarNumero(v);
+      return `${descrever(v)} → número: ${sim(r.ehNumero)}, inteiro: ${sim(r.ehInteiro)}, ` +
+             `finito: ${sim(r.ehFinito)}, seguro: ${sim(r.ehSeguro)}`;
+    }).join("\n"));
+  });
+</script>
+</body>
+</html>
